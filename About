@@ -1,0 +1,83 @@
+Advanced Feedback System
+Frames: New message or Replies frame button, New Message frame, Replies, Success/Fail frame, Reply content frame.
+
+
+Frame1: will have "Create" and "Replies" button, if a reply is added and is unseen the "Replies" button will become "• Replies" where the "•"'s size is more and the color is maybe studio blue
+
+
+new message frame:
+Behaviour: opens when the "Create" button is pressed. Animation being slide to left.
+Has a back button on top
+Has a notepad where the player can write notes
+Below the notepad there are 2 buttons, "Clear" and "Submit", if the player clicks on the submit button and the notepad has bad words or is not empty or doesn't have enough characters then it will show error below the notepad in a red textbox.
+If all verifications are passed then it will send the notepad text to the discord webhook, if this process was successful then the "Succes Frame" would open through a slide to left animation. If failed the "Fail" will open.
+
+Replies Frame:
+Behaviour: Opens in a slide animation to left.
+Has 2 sections each divided by an line, 2 sections are "unread replies" and "seen replies." Each section getting divided by a line and the heading of the name of the section in between the line.
+If there is a new reply to a feedback that player made that player has not seen, it will appear on the "unread replies" and if the player has seen a reply it will appear on the "seen section".
+The reply will include the starting characters of the message that player made as the heading
+And below it some characters of the developer's reply.
+and when clicked it will the "Reply Content Frame" in a slide to left animation having a back button again it will open a frame only dedicated showing the player's message and the developer's reply to it.
+
+Backend
+A datastored based cooldown system to make that the player can't spam send messages to the webhook.
+Along with the message from the player, their Account Age, Region, Username, Display name, User ID, tick and Device Type will be Sent to the discord webhook.
+
+
+
+Feedback System Overview
+Frames
+Main Frame: Contains the "Create" and "Replies" buttons.
+If a new reply is received and hasn't been viewed, the "Replies" button changes to "Replies •", with the dot (•) styled in a larger size and colored (preferably Studio Blue) to indicate unread content.
+
+
+
+New Message Frame
+Behavior:
+Opens with a slide-to-left animation when the "Create" button is clicked.
+UI Elements:
+A Back button at the top.
+A Notepad input area where players can type their feedback.
+Two buttons below the notepad: "Clear" and "Submit".
+Validation:
+If the notepad is empty, contains inappropriate language, or has too few characters, a red error message will be displayed beneath the notepad.
+On successful validation, the feedback is sent to a Discord webhook.
+Post-Submission Behavior:
+If the message is sent successfully, the Success Frame opens with a slide-to-left animation.
+If the submission fails, the Fail Frame is shown instead.
+
+
+Replies Frame
+Behavior:
+Opens with a slide-to-left animation when the "Replies" button is clicked.
+Structure:
+Divided into two sections: Unread Replies and Seen Replies.
+Each section is separated by a line with the section title centered within it.
+Reply Items:
+Each reply displays the beginning of the original message as a heading, followed by a short preview of the developer’s reply.
+Clicking on a reply opens the Reply Content Frame with a slide-to-left animation.
+
+
+Reply Content Frame
+Function:
+Displays the full original message from the player and the corresponding reply from the developer.
+UI:
+Includes a Back button for navigation.
+
+
+Backend
+A DataStore-based cooldown system is used to prevent message spam and limit how frequently a player can submit feedback.
+Along with the player’s message, the following metadata is also sent to the Discord webhook:
+Account Age
+Region
+Username
+Display Name
+User ID
+Timestamp (Tick)
+Device Type
+
+Send Reply Frame For Admins
+In the "Create Message frame" below the two buttons there is a textbutton with text "Create Reply" Which when clicked opens the create reply frame in a slide animation.
+Create Reply Frame
+Has options for the to fill the reply message and a textbox which is responsible to hold the User ID of the person that you are trying to send the message to and another textbox for the ReplyID. Again, if the reply was failed to make. it will open the error frame with the error message.
