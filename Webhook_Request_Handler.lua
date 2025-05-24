@@ -27,7 +27,7 @@ function WebhookRequest:SendRequest()
 		return HttpService:PostAsync(self.WebhookUrl, JsonData, self.HttpType)
 	end)
 	
-	if not success then error(response) return false end
+	if not success then warn(response) return false end
 	
 	return true
 end
