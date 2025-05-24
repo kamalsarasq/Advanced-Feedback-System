@@ -14,8 +14,6 @@ MessageHolder.__index = MessageHolder
 function MessageHolder.new(Key, _Content, Parent, ContentFrame)
 	local NewMessageHolder = {}
 	setmetatable(NewMessageHolder, MessageHolder)
-	warn("content is:")
-	warn(_Content)
 	
 	NewMessageHolder.Key = Key
 	
